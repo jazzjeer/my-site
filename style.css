@@ -1,0 +1,217 @@
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #fffdf5;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: 0.3s;
+}
+
+a:hover {
+  background-color: #006400;
+  color: gold;
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #003300;
+  padding: 10px 40px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.logo {
+  height: 80px;
+  width: auto;
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  margin-top: 90px; /* offset for the fixed navbar */
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.hero-text {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: white;
+}
+
+.hero-text h1 {
+  font-size: 4rem;
+}
+
+.hero-text h2 {
+  font-size: 3rem;
+  margin: 10px 0;
+}
+
+.hero-text p {
+  font-size: 1.5rem;
+}
+
+/* Menu Cards */
+.menu-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+  padding: 60px 40px;
+  background-color: #fefae0;
+  position: relative;
+  z-index: 2; /* keep menu cards on top */
+}
+
+.menu-card {
+  height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.menu-card a {
+  background-color: rgba(0, 51, 0, 0.8);
+  color: gold;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+/* Quote Section */
+.quote-section {
+  position: relative;
+  margin-top: -100px;       /* pulls the quote up beneath .menu-cards */
+  padding-top: 100px;       /* pushes the quote text down to meet menus */
+  padding-bottom: 80px;     /* spacing before the story section */
+  background-color: #fefae0;/* same as .menu-cards for seamless overlap */
+  z-index: 1;               /* sits below .menu-cards until scrolled */
+  overflow: hidden;
+}
+
+.quote {
+  font-size: 2.5rem;        /* larger, prominent typography */
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1.3;
+  text-align: center;
+  color: #333;              /* dark for good contrast */
+  max-width: 800px;         /* restricts width on large screens */
+  margin: 0 auto;           /* centers horizontally */
+  padding: 0 20px;          /* small horizontal padding on mobile */
+}
+
+/* Story Section */
+.story {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: 80px 40px;
+  background-color: #fffdf5;
+  scroll-snap-align: start;
+}
+
+.story-text {
+  flex: 1;
+  padding-right: 40px;
+}
+
+.story-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.story-image img.gold-bordered {
+  border: 6px solid gold;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Awards Section */
+.awards {
+  background: 
+    linear-gradient(rgba(255, 253, 245, 0.95), rgba(255, 253, 245, 0.95)),
+    url('images/diamond-bg.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  padding: 100px 40px;
+  text-align: center;
+}
+
+/* Venues Footer */
+.venues {
+  background-color: #003300;
+  color: white;
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.venue {
+  text-align: center;
+}
+
+.venue h3 {
+  font-size: 1.4rem;
+  color: gold;
+}
+
+/* Scroll Behavior */
+html {
+  scroll-behavior: smooth;
+  scroll-snap-type: y mandatory;
+}
+
+section {
+  scroll-snap-align: start;
+}
